@@ -1,4 +1,4 @@
-# Niji
+# Vybe
 
 **Own Your Vibe.** A privacy-first social app: encrypted chat and calls, **Vybe** (photos, moods, reels-style discover), and **Hub** (people selling their own products).
 
@@ -8,10 +8,10 @@ Launch trailer (cinematic cut from the UI): [http://127.0.0.1:43147/trailer](htt
 
 ## Two surfaces
 
-| Directory | What it is |
-| --- | --- |
-| [`mobile/`](./mobile) | **The product.** Expo and React Native, one codebase for iOS and Android. Start here. |
-| this directory | A Next.js web preview built earlier. Web gets its own approach later; this is not the phone app. |
+| Directory             | What it is                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| [`mobile/`](./mobile) | **The product.** Expo and React Native, one codebase for iOS and Android. Start here.            |
+| this directory        | A Next.js web preview built earlier. Web gets its own approach later; this is not the phone app. |
 
 To run the phone app:
 
@@ -57,13 +57,13 @@ Open [http://127.0.0.1:43147](http://127.0.0.1:43147).
 
 ## Tabs
 
-| Tab | What you can do |
-| --- | --- |
-| Calls | History, encrypted voice / video |
-| Chat | Trusted threads, **Hub chat** (stall enquiries, orders, pay), **Mist** (share a code, not a name), later drafts |
-| Vybe | Name, still, caption. Hold / Pass / Fade instead of a forever public feed. Status stories. Vybe chat. |
-| Hub | Browse stalls ranked by feedback, or **host more than one**. FSSAI / GST / licence numbers open the official Indian lookup. Share a stall by QR or into chat. Enquiries land in Hub chat. |
-| You | Presence (Around / Quiet / Ghost), changeable Niji ID, hide Vybe or Hub |
+| Tab   | What you can do                                                                                                                                                                           |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Calls | History, encrypted voice / video                                                                                                                                                          |
+| Chat  | Trusted threads, **Hub chat** (stall enquiries, orders, pay), **Mist** (share a code, not a name), later drafts                                                                           |
+| Vybe  | Name, still, caption. Hold / Pass / Fade instead of a forever public feed. Status stories. Vybe chat.                                                                                     |
+| Hub   | Browse stalls ranked by feedback, or **host more than one**. FSSAI / GST / licence numbers open the official Indian lookup. Share a stall by QR or into chat. Enquiries land in Hub chat. |
+| You   | Presence (Around / Quiet / Ghost), changeable Niji ID, hide Vybe or Hub                                                                                                                   |
 
 Chat lines can be copied into another thread. There is no forward. On **Ash**, a **seal**, or **Mist**, a screenshot or recording is blocked where the phone allows, and a capture that still lands writes a notice in the thread.
 
