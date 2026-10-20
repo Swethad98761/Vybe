@@ -1,4 +1,4 @@
-# Vybe
+# Niji
 
 **Own Your Vibe.** A privacy-first social app: encrypted chat and calls, **Vybe** (photos, moods, reels-style discover), and **Hub** (people selling their own products).
 
