@@ -1,0 +1,594 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm);
+  --font-serif: var(--font-display);
+  --font-mono: var(--font-jetbrains);
+  --font-heading: var(--font-dm);
+  --color-chrome: var(--chrome);
+  --color-saffron: var(--saffron);
+  --color-india: var(--india);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #141414;
+  --card: #ffffff;
+  --card-foreground: #141414;
+  --popover: #ffffff;
+  --popover-foreground: #141414;
+  --primary: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #141414;
+  --muted: #f6f6f6;
+  --muted-foreground: #8a8a8a;
+  --accent: #f3f3f3;
+  --accent-foreground: #141414;
+  --destructive: #d94040;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.1);
+  --ring: #c8c8c8;
+  --chrome: #b8b8b8;
+  --saffron: #ff9933;
+  --india: #138808;
+  --chart-1: #c8c8c8;
+  --chart-2: #8a8a8a;
+  --chart-3: #ff9933;
+  --chart-4: #138808;
+  --chart-5: #141414;
+  --radius: 0.9rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #141414;
+  --sidebar-primary: #141414;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f6f6f6;
+  --sidebar-accent-foreground: #141414;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #c8c8c8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+  }
+  body {
+    @apply text-foreground antialiased;
+    background-color: #ebebec;
+    min-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .tracking-caps {
+    letter-spacing: 0.28em;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hairline {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* The portrait art already fits top to bottom at cover, so it opens tight on the mark
+   and pulls back to settle on the full page. The drift stays inside the overflow the
+   zoom creates, otherwise the paper edge slides into frame. */
+@keyframes story-push {
+  0% {
+    transform: scale(1.2) translateY(6.5%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes lockup-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lockup-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    transform: scale(1.055);
+    filter: brightness(1.08) saturate(1.05);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes tap-pulse {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin-dashed {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-story-push {
+  animation: story-push 12.5s cubic-bezier(0.4, 0.05, 0.2, 1) forwards;
+}
+
+.animate-lockup-open {
+  animation: lockup-open 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-lockup-out {
+  animation: lockup-out 0.4s ease forwards;
+}
+
+.gate-node {
+  position: absolute;
+  top: 51%;
+  z-index: 30;
+  display: flex;
+  width: 44px;
+  translate: 0 -50%;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.72);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.42s ease;
+}
+
+.gate-node-left {
+  left: calc(19.1% - 22px);
+}
+
+.gate-node-right {
+  right: auto;
+  left: calc(80.9% - 22px);
+}
+
+.gate-node.is-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gate-node.is-ghost {
+  opacity: 0.38;
+  filter: grayscale(1);
+}
+
+.gate-node-halo {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  translate: -50% 0;
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.38s ease;
+}
+
+.gate-node-disc {
+  position: relative;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 999px;
+  background: #f7f7f8;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.92),
+    0 3px 8px rgba(25, 25, 34, 0.1);
+  transition: box-shadow 0.38s ease;
+}
+
+.gate-node-saffron.is-hot .gate-node-halo {
+  background: rgba(255, 176, 86, 0.95);
+  opacity: 1;
+}
+
+.gate-node-green.is-hot .gate-node-halo {
+  background: rgba(77, 255, 136, 0.9);
+  opacity: 1;
+}
+
+.gate-node-saffron.is-hot .gate-node-disc {
+  box-shadow:
+    0 0 0 1.6px #ffb056,
+    0 0 14px rgba(255, 153, 51, 1),
+    0 0 24px rgba(255, 122, 24, 0.75);
+}
+
+.gate-node-green.is-hot .gate-node-disc {
+  box-shadow:
+    0 0 0 1.6px #4dff88,
+    0 0 14px rgba(61, 255, 122, 1),
+    0 0 24px rgba(46, 232, 106, 0.7);
+}
+
+.gate-sheet {
+  pointer-events: none;
+  position: absolute;
+  z-index: 20;
+  top: calc(51% + 88px);
+  right: 16px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 16px;
+  transform: translateY(110%);
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gate-sheet > div {
+  display: flex;
+  height: 100%;
+  min-height: 248px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gate-sheet.is-up {
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.animate-breathe {
+  animation: breathe 2.33s ease-in-out infinite;
+}
+
+.animate-tap {
+  animation: tap-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-spin-dashed {
+  animation: spin-dashed 0.9s linear infinite;
+}
+
+/* The one paper tone. tools/level-paper.py lands the artwork's page on this exact
+   value, so art and interface are the same material with no brightness step. */
+.bg-paper {
+  background-color: #ebebec;
+}
+
+@keyframes niji-share-ring {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.9;
+    stroke-width: 2.2;
+  }
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+    stroke-width: 1;
+  }
+}
+
+.niji-share-ring {
+  fill: none;
+  stroke: #111114;
+  stroke-width: 2.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: niji-share-ring 0.72s ease-out forwards;
+}
+
+.niji-share-ring-2 {
+  animation-delay: 90ms;
+}
+
+.niji-share-ring-3 {
+  animation-delay: 180ms;
+}
+
+@keyframes niji-ring-soft-a {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes niji-ring-soft-b {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.niji-ring-soft-a {
+  animation: niji-ring-soft-a 3.4s ease-in-out infinite;
+}
+
+.niji-ring-soft-b {
+  animation: niji-ring-soft-b 3.4s ease-in-out infinite;
+}
+
+@keyframes trailer-kb-rise {
+  from {
+    transform: translateX(-50%) scale(1.34) translateY(10%);
+  }
+  to {
+    transform: translateX(-50%) scale(1.08) translateY(-3%);
+  }
+}
+
+@keyframes trailer-kb-hold {
+  from {
+    transform: scale(1.16);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes trailer-kb-mark {
+  from {
+    transform: scale(1.4);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes trailer-phone-in {
+  from {
+    transform: translate3d(0, 36px, 0) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes trailer-phone-push {
+  from {
+    transform: scale(1.42) translate3d(0, 8%, 0);
+  }
+  to {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes trailer-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes trailer-title {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes trailer-grain {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-2%, 3%, 0);
+  }
+}
+
+.trailer-kb-rise {
+  animation: trailer-kb-rise 5.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.trailer-kb-hold {
+  animation: trailer-kb-hold 4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.trailer-kb-mark {
+  animation: trailer-kb-mark 3.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.trailer-phone-in {
+  animation: trailer-phone-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.trailer-phone-push {
+  animation: trailer-phone-push 4.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.trailer-fade {
+  animation: trailer-fade 0.7s ease both;
+}
+
+.trailer-title {
+  animation: trailer-title 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.trailer-grain {
+  animation: trailer-grain 0.18s steps(2) infinite;
+}
+
+/* Investor deck motion */
+@keyframes invest-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes invest-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes invest-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.invest-rise {
+  animation: invest-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.invest-fade {
+  animation: invest-fade 0.65s ease both;
+}
+
+.invest-zoom {
+  animation: invest-zoom 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.invest-root {
+  font-family: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Marketing site (niji.chat) */
+@keyframes site-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes site-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes site-zoom {
+  from {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.site-rise {
+  animation: site-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.site-fade {
+  animation: site-fade 0.7s ease both;
+}
+
+.site-zoom {
+  animation: site-zoom 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-crossfade {
+  transition: opacity 1.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-copyfade {
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-root {
+  font-family: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
+}

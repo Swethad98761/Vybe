@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "Niji",
+    "slug": "niji",
+    "owner": "agnyathaa_vasi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "niji",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#EBEBEC",
+    "icon": "./assets/images/icon.png",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.niji.mobile",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Niji uses the microphone for voice calls.",
+        "NSCameraUsageDescription": "Niji uses the camera for video calls.",
+        "NSFaceIDUsageDescription": "Niji uses Face ID to open this phone or a sealed chat."
+      }
+    },
+    "android": {
+      "package": "app.niji.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#EBEBEC",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "versionCode": 1,
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA",
+        "VIBRATE"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": false,
+          "data": [
+            { "scheme": "niji", "host": "id" },
+            { "scheme": "niji", "pathPrefix": "/id" }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#EBEBEC",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 90
+        }
+      ],
+      "expo-sharing"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "7e383600-adbd-47b0-a3bc-93cfa79f03c8"
+      }
+    }
+  }
+}
