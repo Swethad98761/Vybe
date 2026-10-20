@@ -6,6 +6,12 @@ The product stance is **frozen**. Read [`STANCE.md`](./STANCE.md) before changin
 
 Launch trailer (cinematic cut from the UI): [http://127.0.0.1:43147/trailer](http://127.0.0.1:43147/trailer). Investor paper: [http://127.0.0.1:43147/pitch](http://127.0.0.1:43147/pitch) — `?play=1` starts the trailer over the paper.
 
+## App demo
+
+[![Watch the Niji app demo](public/demo/niji-demo-poster.jpg)](public/demo/niji-demo.mp4)
+
+Click the preview to open the MP4. The README displays only the small poster until the video is opened.
+
 ## Two surfaces
 
 | Directory             | What it is                                                                                       |
