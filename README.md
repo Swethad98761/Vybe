@@ -8,9 +8,9 @@ Launch trailer (cinematic cut from the UI): [http://127.0.0.1:43147/trailer](htt
 
 ## App demo
 
-[![Watch the Niji app demo](public/demo/niji-demo-poster.jpg)](public/demo/niji-demo.mp4)
+![Niji app demo preview](public/demo/niji-demo.gif)
 
-Click the preview to open the compact 640 × 360 H.264 video (about 1.8 MB).
+[Download the full MP4 demo](public/demo/niji-demo.mp4).
 
 ## Two surfaces
 
