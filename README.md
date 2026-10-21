@@ -8,7 +8,7 @@ Launch trailer (cinematic cut from the UI): [http://127.0.0.1:43147/trailer](htt
 
 ## App demo
 
-![Niji app demo preview](public/demo/niji-demo.gif)
+![Niji app demo preview](public/demo/niji-demo-944x528.gif)
 
 [Download the full MP4 demo](public/demo/niji-demo.mp4).
 
